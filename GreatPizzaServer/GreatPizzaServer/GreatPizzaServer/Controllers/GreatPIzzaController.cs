@@ -12,40 +12,48 @@ namespace GreatPizzaServer.Controllers
 {
   [RoutePrefix("api/GreatPizza")]
   public class GreatPIzzaController : ApiController
-    {
+  {
 
-        PizzaHelper helper;
+    PizzaHelper helper = null;
+
+    public PizzaHelper PizzaHelper
+    {
+      get
+      {
+        if (helper == null)
+        {
+          helper = new PizzaHelper();
+        }
+        return helper;
+      }
+    }
 
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     [Route("GetPizzas")]
     public IEnumerable<Pizza> getPizzas()
-        {
-          helper = new PizzaHelper();
-          return helper.GetAllPizzas();
-        }
+    {
+      return PizzaHelper.GetAllPizzas();
+    }
 
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     [Route("GetIngredients")]
     public IEnumerable<Ingredient> getIngredients()
-        {
-          helper = new PizzaHelper();
-          return helper.getAllIngredients();
-        }
+    {
+      return PizzaHelper.getAllIngredients();
+    }
 
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     [Route("GetIngredientsByPizzaId/{id}")]
     public string GetIngredientsByPizzaId(int id)
     {
-      helper = new PizzaHelper();
-      return helper.GetIngredientsByPizzaId(id);
+      return PizzaHelper.GetIngredientsByPizzaId(id);
     }
 
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     [Route("AddPizza")]
     public IHttpActionResult AddPizza(Pizza pizza)
     {
-      helper = new PizzaHelper();
-      helper.AddPizza(pizza);
+      PizzaHelper.AddPizza(pizza);
       return Ok();
     }
 
@@ -53,30 +61,29 @@ namespace GreatPizzaServer.Controllers
     [Route("EditPizza")]
     public IHttpActionResult EditPizza(Pizza pizza)
     {
-      helper = new PizzaHelper();
-      helper.UpdatePizza(pizza);
+      PizzaHelper.UpdatePizza(pizza);
       return Ok();
     }
 
     // GET: api/GreatPIzza/5
     public string Get(int id)
-        {
-            return "value";
-        }
-
-        // POST: api/GreatPIzza
-        public void Post([FromBody]string value)
-        {
-        }
-
-        // PUT: api/GreatPIzza/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE: api/GreatPIzza/5
-        public void Delete(int id)
-        {
-        }
+    {
+      return "value";
     }
+
+    // POST: api/GreatPIzza
+    public void Post([FromBody]string value)
+    {
+    }
+
+    // PUT: api/GreatPIzza/5
+    public void Put(int id, [FromBody]string value)
+    {
+    }
+
+    // DELETE: api/GreatPIzza/5
+    public void Delete(int id)
+    {
+    }
+  }
 }
