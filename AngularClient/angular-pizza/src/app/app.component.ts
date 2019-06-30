@@ -15,8 +15,11 @@ export class AppComponent {
   }
 
   lstComments:Pizza[];
-  ingredientsByPizzaId:string;
+  ingredientsByPizzaId:string[];
+  allIngredients:string[];
   resultOK :any;
+  updatePizzaModel:Pizza;
+  newPizzaModel:Pizza;
 
   ngOnInit(){
 
@@ -28,7 +31,7 @@ export class AppComponent {
         this.lstComments = data;
       }
     );
-
+/*
     var oPizza = new Pizza();
     oPizza.name_pizza = 'test new pizza';
     oPizza.idIngredient = '1,3';
@@ -43,28 +46,71 @@ export class AppComponent {
       }
     );
 
-
-
+*/
+   
     
-    
-
-
+this.getAllIngredients();
 
 
 }
 
-getPizzaIngredientsById(id:number):string{
-  let result :'';
+getPizzaIngredientsById(id:number){
   this._greatPizzaService.getPizzaById(id)
   .subscribe
   (
     data=>
     {
-      result: data;
+      if (data !== null && data !== 'undefined' && data !== '')
+      {
+        this.ingredientsByPizzaId = data.split(',');
+      }
+      else
+      {
+        this.ingredientsByPizzaId = [];
+      }
     }
   );
-  return result;
+}
 
+getAllIngredients(){
+  this._greatPizzaService.allIngredients()
+  .subscribe
+  (
+    data=>
+    {
+      this.allIngredients= data;
+    }
+  );
+}
+
+onClickAddPizza(){
+  alert('add pizza');
+
+  this._greatPizzaService.addPizza(this.newPizzaModel)
+  .subscribe
+  (
+    data=>
+    {
+      this.resultOK = data;
+    }
+  );
+  
+
+}
+
+
+onClickSavePizza(){
+  alert('edit pizza');
+
+  this._greatPizzaService.addPizza(this.updatePizzaModel)
+  .subscribe
+  (
+    data=>
+    {
+      this.resultOK = data;
+    }
+  );
+  
 }
 
 }

@@ -15,7 +15,7 @@ th{
 </style>
 
 <h1>Great Pizza</h1>
-<button>Add new Pizza</button>
+<h2>Add New Pizza</h2>
 <div>
     <br>
     <br>
@@ -24,38 +24,80 @@ th{
         <label for="name">Name</label>
         <input type="text" id="name">
     </div>
+    <div>
+        <ul >
+            <li *ngFor="let ingre of allIngredients">
+                <label>{{ingre.name_ingredient}}:
+                    <input type="checkbox" >
+                </label><br/>
+
+            </li>
+        </ul>
+    </div>
+
     <br>
-    <button >Submit</button><button >Cancel</button>
+    <button (click)="onClickAddPizza()">Add new Pizza</button>
     <br>
     <br>
 
 </div>
 <br>
 <br>
+<h2>List of Pizzas</h2>
 <br>
 <table>
   <tr>
     <th>id</th>
     <th>pizza name</th>
-    <th>Ingredients</th>
     <th>Edit</th>
-    <th>Delete</th>
   </tr>
 
   <tr *ngFor="let com of lstComments">
       <th>{{com.id_pizza}}</th>
       <th>{{com.name_pizza}}</th>
-      <th>nada</th>
       <th><button>edit</button></th>
-      <th><button>delete</button></th>
     </tr>
 
 </table>
 
+<br>
+<br>
+<h2>Edit Pizza</h2>
+<div>
+    <br>
+    <br>
+    <div >
+        <label for="name">id</label>
+        <input type="text" id="id">
+    </div>
+    <br>
+    <div >
+        <label for="name">Name</label>
+        <input type="text" id="name">
+    </div>
+    <div>
+        <ul >
+            <li *ngFor="let ingre of allIngredients">
+                <label>{{ingre.name_ingredient}}:
+                    <input type="checkbox" >
+                </label><br/>
+
+            </li>
+        </ul>
+    </div>
+
+    <br>
+    <button (click)="onClickSavePizza()">Save Pizza</button>
+    <br>
+    <br>
+
+</div>
+<br>
+
 
 <br>
 <br>
 <br>
-<p>result: {{resultOK}}</p>
+
 
 

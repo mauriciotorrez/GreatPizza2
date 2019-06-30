@@ -1,5 +1,6 @@
 export class Ingredient
 {
     id_ingredient:number;
-    ingredient_name:string;
+    name_ingredient:string;
+    checked:boolean;
 }
