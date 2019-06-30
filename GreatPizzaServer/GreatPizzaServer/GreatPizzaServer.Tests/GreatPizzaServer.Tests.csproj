@@ -91,6 +91,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\GreatPizzaControllerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
     <Compile Include="Controllers\ValuesControllerTest.cs" />
@@ -102,6 +103,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DTO\DTO.csproj">
+      <Project>{69106D9F-C938-437E-AEE6-CA6142A89DCA}</Project>
+      <Name>DTO</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GreatPizzaServer\GreatPizzaServer.csproj">
       <Project>{0E023573-D31B-400B-A6EF-076E36532C74}</Project>
       <Name>GreatPizzaServer</Name>
