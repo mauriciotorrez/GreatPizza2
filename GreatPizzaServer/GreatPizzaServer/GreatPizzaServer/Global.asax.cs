@@ -13,7 +13,15 @@ namespace GreatPizzaServer
 {
     public class WebApiApplication : System.Web.HttpApplication
     {
-        protected void Application_Start()
+    protected void Application_Error(object sender, EventArgs e)
+    {
+      Exception exception = Server.GetLastError();
+      if (exception != null)
+      {
+        //log the error
+      }
+    }
+    protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
