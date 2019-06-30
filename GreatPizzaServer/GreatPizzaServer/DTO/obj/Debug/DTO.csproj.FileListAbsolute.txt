@@ -1,0 +1,4 @@
+D:\Projects\GreatPizza\GreatPizzaServer\GreatPizzaServer\DTO\bin\Debug\DTO.dll
+D:\Projects\GreatPizza\GreatPizzaServer\GreatPizzaServer\DTO\bin\Debug\DTO.pdb
+D:\Projects\GreatPizza\GreatPizzaServer\GreatPizzaServer\DTO\obj\Debug\DTO.dll
+D:\Projects\GreatPizza\GreatPizzaServer\GreatPizzaServer\DTO\obj\Debug\DTO.pdb

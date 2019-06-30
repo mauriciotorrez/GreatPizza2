@@ -1,0 +1,47 @@
+<style>
+table, td , th {
+  border: 1px solid black;
+}
+
+table{
+  border-collapse: collapse;
+  width: 90%;
+}
+
+th{
+  height: 50px;
+}
+
+</style>
+
+<h1>Great Pizza</h1>
+<button>Add new Pizza</button>
+<br>
+<br>
+<br>
+<table>
+  <tr>
+    <th>id</th>
+    <th>pizza name</th>
+    <th>Ingredients</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+
+  <tr *ngFor="let com of lstComments">
+      <th>{{com.id_pizza}}</th>
+      <th>{{com.name_pizza}}</th>
+      <th>nada</th>
+      <th><button>edit</button></th>
+      <th><button>delete</button></th>
+    </tr>
+
+</table>
+
+
+<br>
+<br>
+<br>
+<p>result: {{resultOK}}</p>
+
+
